@@ -23,7 +23,7 @@ app.use((req, res, next) => {
   next()
 })
 
-const port = process.env.PORT || 8080;
+const port = 8080;
 const allowedOrigins = ['https://fancy-bubblegum-3ce971.netlify.app', 'http://localhost:5173/'];
 
 app.use(bodyParser.json(), cors({
