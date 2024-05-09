@@ -26,7 +26,7 @@ try {
   });
 
   const port = process.env.PORT || 8080;
-  const allowedOrigins = ['https://fancy-bubblegum-3ce971.netlify.app', 'http://localhost:5173/'];
+  const allowedOrigins = ['https://fancy-bubblegum-3ce971.netlify.app', 'https://unique-crumble-d51f7a.netlify.app'];
 
   app.use(bodyParser.json(), cors({
     origin: function (origin, callback) {
