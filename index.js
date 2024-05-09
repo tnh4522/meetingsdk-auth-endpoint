@@ -7,8 +7,13 @@ const KJUR = require('jsrsasign')
 
 const app = express()
 const port = 80
-
 const allowedOrigins = ['https://fancy-bubblegum-3ce971.netlify.app', 'http://localhost:5173/'];
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // Cho phép truy cập từ bất kỳ nguồn nào
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use(bodyParser.json(), cors({
   origin: function (origin, callback) {
