@@ -26,7 +26,7 @@ try {
   });
 
   const port = process.env.PORT || 8080;
-  const allowedOrigins = ['https://doctor-system.netlify.app/', 'https://patient-interface.netlify.app/'];
+  const allowedOrigins = ['https://doctor-system.netlify.app', 'https://patient-interface.netlify.app'];
 
   app.use(bodyParser.json(), cors({
     origin: function (origin, callback) {
