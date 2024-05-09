@@ -8,7 +8,18 @@ const KJUR = require('jsrsasign')
 const app = express()
 const port = 80
 
-app.use(bodyParser.json(), cors())
+const allowedOrigins = ['https://fancy-bubblegum-3ce971.netlify.app', 'http://localhost:5173/'];
+
+app.use(bodyParser.json(), cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}))
+
 app.options('*', cors())
 
 app.post('/', (req, res) => {
