@@ -6,7 +6,7 @@ const cors = require('cors')
 const KJUR = require('jsrsasign')
 
 const app = express()
-const port = process.env.PORT || 4000
+const port = 8000
 
 app.use(bodyParser.json(), cors())
 app.options('*', cors())
@@ -35,6 +35,8 @@ app.post('/', (req, res) => {
   res.json({
     signature: signature
   })
+  console.log(oPayload)
+  console.log(`Your signature ${signature}`)
 })
 
 app.listen(port, () => console.log(`Zoom Meeting SDK Auth Endpoint Sample Node.js listening on port ${port}!`))
